@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
   let(:user) { build(:user)}
   let(:token) { Devise.friendly_token }
 
+  it { is_expected.to have_many(:tasks).dependent(:destroy) }
+
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_confirmation_of(:password) }
