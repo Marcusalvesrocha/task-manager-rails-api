@@ -1,5 +1,5 @@
 class Api::V2::UsersController < ApplicationController
-	before_action :authenticate_with_token!, only: [:destroy]
+	before_action :authenticate_with_token!, only: [:create, :destroy]
 
 	def show
 		begin
