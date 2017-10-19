@@ -6,7 +6,7 @@ class Api::V2::TaskSerializer < ActiveModel::Serializer
   			 :created_at, :updated_at, :short_description, :is_late
 
  	def short_description
- 		object.description[0..5]
+ 		object.description[0..5] if object.description.present?
  	end
 
  	def is_late
